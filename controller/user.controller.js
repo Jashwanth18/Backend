@@ -8,6 +8,7 @@ import { upload } from "../middlewares/mutler.middleware.js";
 const registerUser = asyncHandler(async (req, res) => {
   const { fullName, userName, password, email } = req.body;
   console.log(req.body);
+  // TODO : Use JOI for validation
   if ([fullName, userName, password].some((dataField) => !dataField?.trim())) {
     throw new customApiError(400, "All fields are mandatory");
   }
